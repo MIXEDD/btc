@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {configureStore} from "./store";
 
 const Application: React.FC = () => (
    <Provider store={configureStore()}>
-       <App />
+       <BrowserRouter>
+           <App />
+       </BrowserRouter>
    </Provider>
 )
 
