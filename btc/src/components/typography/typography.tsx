@@ -25,9 +25,6 @@ interface Props {
     size?: Sizes;
     weight?: Weights;
     elementType?: ElementType;
-    underline?: boolean;
-    nowrap?: boolean;
-    className?: string;
 }
 
 const Typography: React.FC<Props> = React.memo((props) => {
@@ -35,20 +32,14 @@ const Typography: React.FC<Props> = React.memo((props) => {
         elementType = ElementType.P,
         size = Sizes.DEFAULT,
         weight = Weights.NORMAL,
-        className,
         children,
-        underline,
-        nowrap,
         ...rest
     } = props;
     
     const computedClassName = classnames(
         styles.typography,
-        underline && styles.underline,
-        nowrap && styles.nowrap,
         styles[size],
         styles[weight],
-        className,
     );
 
     return React.createElement(
