@@ -8,7 +8,7 @@ export enum Type {
 }
 
 interface Props {
-    type?: 'button' | 'submit';
+    type?: Type;
     onClick?: () => void;
     disabled?: boolean;
     text?: string;
