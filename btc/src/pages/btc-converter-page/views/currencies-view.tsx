@@ -14,13 +14,13 @@ interface Props {
     btcAmount: string;
     code: string;
     isVisible: boolean;
-    onRemoveVisibility: (code: string) => void;
+    onChangeVisibility: (code: string, flag: boolean) => void;
 }
 
 const CurrenciesView: React.FC<Props> = React.memo((props) => {
-    const {description, rate, symbol, btcAmount, code, isVisible, onRemoveVisibility} = props;
+    const {description, rate, symbol, btcAmount, code, isVisible, onChangeVisibility} = props;
     
-    const onClickRemove = () => onRemoveVisibility(code);
+    const onClickRemove = () => onChangeVisibility(code, false);
 
     if (!isVisible) {
         return null;

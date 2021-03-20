@@ -17,12 +17,12 @@ const BtcConverterPage: React.FC = () => {
         
     const formValues = useSelector(getFormValues(FORM_NAME)) as BtcConverterFormModel;
     
-    const onRemoveVisibility = (code: string) => {
+    const onChangeVisibility = (code: string, flag: boolean) => {
         const cryptoVisibility = {
             ...visibility
         };
 
-        cryptoVisibility[code] = false;
+        cryptoVisibility[code] = flag;
 
         setVisibility(cryptoVisibility);
     };
@@ -68,7 +68,7 @@ const BtcConverterPage: React.FC = () => {
                        symbol={currency.symbol}
                        btcAmount={formValues.BTC_AMOUNT}
                        code={currency.code}
-                       onRemoveVisibility={onRemoveVisibility}
+                       onChangeVisibility={onChangeVisibility}
                        isVisible={visibility[currency.code]}
                    />
                ))}
