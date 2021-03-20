@@ -6,6 +6,7 @@ import BtcConverterForm, { FORM_NAME } from './forms/btc-converter-form';
 import { btcConvertService } from '../../api-service/btc-convert-service';
 import {BtcConverterFormModel, CoindeskBtcModel } from '../../types/BtcConverter';
 import CurrenciesView from './views/currencies-view';
+import Container from "../../components/layout/container";
 
 import styles from './btc-converter-page.module.scss';
 
@@ -57,21 +58,23 @@ const BtcConverterPage: React.FC = () => {
     }, []);
     
    return (
-       <div className={styles.container}>
-           <BtcConverterForm data={data} onChangeVisibility={onChangeVisibility} formValues={formValues} />
-           {formValues?.BTC_AMOUNT && data.map((currency) => (
-               <CurrenciesView
-                   key={currency.code}
-                   description={currency.description}
-                   rate={currency.rate}
-                   symbol={currency.symbol}
-                   btcAmount={formValues.BTC_AMOUNT}
-                   code={currency.code}
-                   onChangeVisibility={onChangeVisibility}
-                   isVisible={visibility[currency.code]}
-               />
-           ))}
-       </div>      
+       <Container>
+           <div className={styles.formContainer}>
+               <BtcConverterForm data={data} onChangeVisibility={onChangeVisibility} formValues={formValues} />
+               {formValues?.BTC_AMOUNT && data.map((currency) => (
+                   <CurrenciesView
+                       key={currency.code}
+                       description={currency.description}
+                       rate={currency.rate}
+                       symbol={currency.symbol}
+                       btcAmount={formValues.BTC_AMOUNT}
+                       code={currency.code}
+                       onChangeVisibility={onChangeVisibility}
+                       isVisible={visibility[currency.code]}
+                   />
+               ))}
+           </div>
+       </Container>
    );
 };
 
