@@ -10,7 +10,7 @@ import { BtcConverterFormModel, CoindeskBtcModel } from '../../../types/BtcConve
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
-const FIELD_NAMES = {
+export const FIELD_NAMES = {
     BTC_AMOUNT: 'BTC_AMOUNT',
     CRYPTOS: 'CRYPTOS',
 }

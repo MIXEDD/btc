@@ -24,7 +24,7 @@ const TextInput: React.FC<Props> = React.memo((props) => {
         ...inputProps
     } = props;
     
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {        
         input.onChange(event.target.value);
     };
     

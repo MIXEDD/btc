@@ -21,7 +21,7 @@ const CurrenciesView: React.FC<Props> = React.memo((props) => {
     const {description, rate, symbol, btcAmount, code, isVisible, onChangeVisibility} = props;
     
     const onClickRemove = () => onChangeVisibility(code, false);
-
+    
     if (!isVisible) {
         return null;
     }

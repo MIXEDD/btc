@@ -33,7 +33,7 @@ const SelectInput: React.FC<Props> = React.memo((props) => {
             [valueKey]: '',
         },
         ...options,
-    ], [options]);
+    ], [options, valueKey, labelKey]);
 
     return (
         <>
