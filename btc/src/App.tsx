@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, Switch} from "react-router";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import BtcConverterPage from "./pages/btc-converter-page/btc-converter-page";
+
+import {ROUTES} from "./constants";
+
+const App: React.FC = () => (
+    <div>
+        <Switch>
+            <Route path={ROUTES.BTC_CONVERTER_PAGE} component={BtcConverterPage} />
+        </Switch>
     </div>
-  );
-}
+);
 
 export default App;

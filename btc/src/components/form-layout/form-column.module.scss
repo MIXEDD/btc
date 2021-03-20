@@ -1,0 +1,11 @@
+@import 'src/styles/variables';
+
+.form-column {
+  max-width: 100%;
+  flex: 1;
+  align-items: center;
+
+  &.with-gutter {
+    padding: $gutter;
+  }
+}

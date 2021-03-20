@@ -1,0 +1,21 @@
+@import 'src/styles/variables';
+
+.typography {
+  font-size: $base-fontsize;
+
+  &.small {
+    font-size: $base-fontsize - 2;
+  }
+
+  &.big {
+    font-size: $base-fontsize + 2;
+  }
+
+  &.header {
+    font-size: $base-fontsize * 2;
+  }
+
+  &.bold {
+    font-weight: bold;
+  }
+}
