@@ -59,7 +59,7 @@ const BtcConverterPage: React.FC = () => {
    return (
        <div className={styles.container}>
            <BtcConverterForm data={data} onChangeVisibility={onChangeVisibility} formValues={formValues} />
-           {formValues?.BTC_AMOUNT && data?.map((currency) => (
+           {formValues?.BTC_AMOUNT && data.map((currency) => (
                <CurrenciesView
                    key={currency.code}
                    description={currency.description}
