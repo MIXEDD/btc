@@ -2,13 +2,14 @@ import React from 'react';
 import classnames from 'classnames';
 
 import styles from './form-column.module.scss';
+import { FormRow } from '.';
 
 interface Props {
     withGutter?: boolean;
 }
 
 const FormColumn: React.FC<Props> = (props) => {
-    const {withGutter = true} = props;
+    const {withGutter = true, children} = props;
 
     const className = classnames(
         styles.formColumn,
@@ -17,8 +18,8 @@ const FormColumn: React.FC<Props> = (props) => {
 
     return (
         <div className={className}>
-            {React.Children.map(props.children, (child: any) => (
-                {child}
+            {React.Children.map(children, (child: any) => (
+                <FormRow>{child}</FormRow>
             ))}
         </div>
     );
