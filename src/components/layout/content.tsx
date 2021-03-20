@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import styles from './content-row.module.scss';
+import styles from './content.module.scss';
 
 export enum Align {
     DEFAULT = 'end',

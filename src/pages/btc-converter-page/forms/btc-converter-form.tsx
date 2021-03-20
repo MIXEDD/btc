@@ -9,7 +9,7 @@ import Translations from '../../../translations/en.json';
 import SelectInput from '../../../atoms/select-field/select-field';
 import { BtcConverterFormModel, CoindeskBtcModel } from '../../../types/BtcConverter';
 import Button from '../../../atoms/button/button';
-import Content from "../../../components/layout/content-row";
+import Content from "../../../components/layout/content";
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
