@@ -25,7 +25,7 @@ const BtcConverterForm: React.FC = React.memo((props) => {
 });
 
 
-const formEnhance = reduxForm<Partial<any>, Props>({
+const formEnhance = reduxForm<Partial<any>, any>({
     form: FORM_NAME,
     destroyOnUnmount: true,
     enableReinitialize: true,
