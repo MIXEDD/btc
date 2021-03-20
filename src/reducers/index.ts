@@ -5,7 +5,9 @@ export interface RootState {
     form: FormStateMap;
 }
 
-export default () =>
-    combineReducers<RootState>({
-        form,
-    });
+const combinedReducers = () => combineReducers<RootState>({
+    form,
+});
+
+export default combinedReducers;
+
