@@ -1,5 +1,6 @@
 import React from 'react';
-import {Field, InjectedFormProps, reduxForm } from 'redux-form';
+import {Field, InjectedFormProps, reduxForm, submit} from 'redux-form';
+import {useDispatch} from "react-redux";
 
 import { Form, FormColumn } from './../../../components/form-layout';
 import { PAGE_NAME } from '../constants';
@@ -7,8 +8,8 @@ import TextInput, { FieldTypes } from '../../../atoms/text-field/text-input';
 import Translations from '../../../translations/en.json';
 import SelectInput from '../../../atoms/select-field/select-field';
 import { BtcConverterFormModel, CoindeskBtcModel } from '../../../types/BtcConverter';
-import Spacer, { Sizes } from '../../../components/spacer';
 import Button from '../../../atoms/button/button';
+import Content from "../../../components/layout/content-row";
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
@@ -21,18 +22,24 @@ interface OwnProps {
     data: CoindeskBtcModel[];
     onChangeVisibility: (code: string, flag: boolean) => void;
     formValues: BtcConverterFormModel;
+    visibility: Record<string, boolean>;
 }
 
 type Props = InjectedFormProps<Partial<BtcConverterFormModel>, OwnProps> & OwnProps;
 
 const BtcConverterForm: React.FC<Props> = React.memo((props) => {
-    const { data, onChangeVisibility, formValues } = props;
-    
-    const onClick = () => onChangeVisibility(formValues.CRYPTOS, true);
-    
+    const { data, onChangeVisibility, formValues, visibility } = props;
+
+    const dispatch = useDispatch();
+    const isDisabled = visibility[formValues?.CRYPTOS];
+
+    const onSubmit = () => onChangeVisibility(formValues.CRYPTOS, true);
+
+    const submitForm = () => dispatch(submit(FORM_NAME));
+
     return (
         <>
-            <Form>
+            <Form onSubmit={onSubmit}>
                 <FormColumn>
                     <Field
                         name={FIELD_NAMES.BTC_AMOUNT}
@@ -49,11 +56,9 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
                         valueKey="code"
                     />
                 </FormColumn>
-                <FormColumn>
-                    <Spacer mt={Sizes.X1}>
-                        <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS} onClick={onClick} />
-                    </Spacer>
-                </FormColumn>
+                <Content>
+                    <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS || isDisabled} onClick={submitForm}/>
+                </Content>
             </Form>
         </>
     );
