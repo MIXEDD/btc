@@ -12,10 +12,19 @@ interface Props {
     rate: string;
     symbol: string;
     btcAmount: string;
+    code: string;
+    isVisible: boolean;
+    onRemoveVisibility: (code: string) => void;
 }
 
 const CurrenciesView: React.FC<Props> = React.memo((props) => {
-    const {description, rate, symbol, btcAmount} = props;
+    const {description, rate, symbol, btcAmount, code, isVisible, onRemoveVisibility} = props;
+    
+    const onClickRemove = () => onRemoveVisibility(code);
+
+    if (!isVisible) {
+        return null;
+    }
     
     return (
         <div className={styles.currenciesView}>
@@ -27,7 +36,7 @@ const CurrenciesView: React.FC<Props> = React.memo((props) => {
                     {`${symbolUtils.decodeSymbol(symbol)} ${numberUtils.formatNumber(String(numberUtils.multiplyNumber(rate, btcAmount)))}`}
                 </Typography>
             </div>
-            <img src={CloseIcon} alt="close" width="10" height="10" />
+            <img src={CloseIcon} alt="close" width="10" height="10" onClick={onClickRemove}/>
         </div>
     );
 });
