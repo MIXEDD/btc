@@ -7,7 +7,6 @@ import TextInput, { FieldTypes } from '../../../atoms/text-field/text-input';
 import Translations from '../../../translations/en.json';
 import SelectInput from '../../../atoms/select-field/select-field';
 import { BtcConverterFormModel, CoindeskBtcModel } from '../../../types/BtcConverter';
-import Spacer, { Sizes } from '../../../components/spacer';
 import Button from '../../../atoms/button/button';
 import Content from "../../../components/layout/content-row";
 
