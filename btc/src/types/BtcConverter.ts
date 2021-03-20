@@ -8,4 +8,5 @@ export interface CoindeskBtcModel {
 
 export interface BtcConverterFormModel {
     BTC_AMOUNT: string;
+    CRYPTOS: string;
 }

@@ -5,20 +5,24 @@ import { Form, FormColumn } from './../../../components/form-layout';
 import { PAGE_NAME } from '../constants';
 import TextInput, { FieldTypes } from '../../../atoms/text-field/text-input';
 import Translations from '../../../translations/en.json';
+import SelectInput from '../../../atoms/select-field/select-field';
+import { BtcConverterFormModel, CoindeskBtcModel } from '../../../types/BtcConverter';
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
-type Props = InjectedFormProps<Partial<any>>;
-
 const FIELD_NAMES = {
     BTC_AMOUNT: 'BTC_AMOUNT',
+    CRYPTOS: 'CRYPTOS',
 }
 
-const BtcConverterForm: React.FC = React.memo((props) => {
-    
-    const onChange = (value: any) => {
-        
-    };  
+interface OwnProps {
+    data: CoindeskBtcModel[];
+}
+
+type Props = InjectedFormProps<Partial<BtcConverterFormModel>, OwnProps> & OwnProps;
+
+const BtcConverterForm: React.FC<Props> = React.memo((props) => {
+    const { data } = props;
     
     return (
         <Form>
@@ -28,7 +32,14 @@ const BtcConverterForm: React.FC = React.memo((props) => {
                     label={Translations["labels.enterBtcAmount"]}
                     type={FieldTypes.NUMBER}
                     component={TextInput}
-                    onChange={onChange}
+                />
+                <Field
+                    name={FIELD_NAMES.CRYPTOS}
+                    label={Translations["labels.selectCurrencies"]}
+                    component={SelectInput}
+                    options={data}
+                    labelKey="description"
+                    valueKey="code"
                 />
             </FormColumn>
         </Form>
@@ -36,7 +47,7 @@ const BtcConverterForm: React.FC = React.memo((props) => {
 });
 
 
-const formEnhance = reduxForm<Partial<any>, any>({
+const formEnhance = reduxForm<Partial<BtcConverterFormModel>, OwnProps>({
     form: FORM_NAME,
     destroyOnUnmount: true,
     enableReinitialize: true,
