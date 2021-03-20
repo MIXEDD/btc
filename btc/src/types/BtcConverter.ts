@@ -5,3 +5,7 @@ export interface CoindeskBtcModel {
     rate_float: number;
     symbol: string;
 }
+
+export interface BtcConverterFormModel {
+    BTC_AMOUNT: string;
+}
