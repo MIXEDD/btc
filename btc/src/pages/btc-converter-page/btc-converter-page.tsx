@@ -58,21 +58,19 @@ const BtcConverterPage: React.FC = () => {
     
    return (
        <div className={styles.container}>
-           <div className={styles.formContainer}>
-               <BtcConverterForm data={data} onChangeVisibility={onChangeVisibility} formValues={formValues} />
-               {formValues?.BTC_AMOUNT && data?.map((currency) => (
-                   <CurrenciesView
-                       key={currency.code}
-                       description={currency.description}
-                       rate={currency.rate}
-                       symbol={currency.symbol}
-                       btcAmount={formValues.BTC_AMOUNT}
-                       code={currency.code}
-                       onChangeVisibility={onChangeVisibility}
-                       isVisible={visibility[currency.code]}
-                   />
-               ))}
-           </div>
+           <BtcConverterForm data={data} onChangeVisibility={onChangeVisibility} formValues={formValues} />
+           {formValues?.BTC_AMOUNT && data?.map((currency) => (
+               <CurrenciesView
+                   key={currency.code}
+                   description={currency.description}
+                   rate={currency.rate}
+                   symbol={currency.symbol}
+                   btcAmount={formValues.BTC_AMOUNT}
+                   code={currency.code}
+                   onChangeVisibility={onChangeVisibility}
+                   isVisible={visibility[currency.code]}
+               />
+           ))}
        </div>      
    );
 };
