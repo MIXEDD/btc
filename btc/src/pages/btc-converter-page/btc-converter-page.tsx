@@ -38,6 +38,8 @@ const BtcConverterPage: React.FC = () => {
                        key={currency.code}
                        description={currency.description}
                        rate={currency.rate}
+                       symbol={currency.symbol}
+                       btcAmount={formValues.BTC_AMOUNT}
                    />
                ))}
            </div>
