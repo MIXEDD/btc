@@ -4,6 +4,7 @@ import {Field, InjectedFormProps, reduxForm } from 'redux-form';
 import { Form, FormColumn } from './../../../components/form-layout';
 import { PAGE_NAME } from '../constants';
 import TextInput from '../../../atoms/text-field/text-input';
+import Translations from '../../../translations/en.json';
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
@@ -16,7 +17,7 @@ const BtcConverterForm: React.FC = React.memo((props) => {
             <FormColumn>
                 <Field 
                     name="BTC_AMOUNT"
-                    label="Enter BTC"
+                    label={Translations["labels.enterBtcAmount"]}
                     component={TextInput}
                 />
             </FormColumn>
