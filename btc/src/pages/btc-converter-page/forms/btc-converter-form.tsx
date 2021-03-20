@@ -1,18 +1,25 @@
 import React from 'react';
-import { InjectedFormProps, reduxForm } from 'redux-form';
+import {Field, InjectedFormProps, reduxForm } from 'redux-form';
 
 import { Form, FormColumn } from './../../../components/form-layout';
 import { PAGE_NAME } from '../constants';
+import TextInput from '../../../atoms/text-field/text-input';
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
 type Props = InjectedFormProps<Partial<any>>;
 
 const BtcConverterForm: React.FC = React.memo((props) => {
-
+    
     return (
         <Form>
-            <FormColumn>fghj</FormColumn>
+            <FormColumn>
+                <Field 
+                    name="BTC_AMOUNT"
+                    label="Enter BTC"
+                    component={TextInput}
+                />
+            </FormColumn>
         </Form>
     );
 });
