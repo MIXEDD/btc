@@ -6,4 +6,4 @@ const FORMAT_TYPES = {
 
 export const formatNumber = (number: string, format = FORMAT_TYPES.REGULAR) => numeral(number).format(format);
 
-export const multiplyNumber = (number: string, multiply: string, format = FORMAT_TYPES.REGULAR) => numeral(number).multiply(multiply).value();
+export const multiplyNumber = (number: string, multiply: string) => numeral(number).multiply(multiply).value();
