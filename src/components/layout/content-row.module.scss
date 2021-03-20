@@ -1,0 +1,25 @@
+@import 'src/styles/variables';
+
+.content {
+  display: flex;
+
+  &.topGutter {
+    padding-top: $gutter;
+  }
+
+  &.end {
+    justify-content: flex-end;
+  }
+
+  &.start {
+    justify-content: flex-start;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+}

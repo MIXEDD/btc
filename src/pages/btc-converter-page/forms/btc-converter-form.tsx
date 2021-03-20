@@ -9,6 +9,7 @@ import SelectInput from '../../../atoms/select-field/select-field';
 import { BtcConverterFormModel, CoindeskBtcModel } from '../../../types/BtcConverter';
 import Spacer, { Sizes } from '../../../components/spacer';
 import Button from '../../../atoms/button/button';
+import Content from "../../../components/layout/content-row";
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
@@ -49,11 +50,9 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
                         valueKey="code"
                     />
                 </FormColumn>
-                <FormColumn>
-                    <Spacer mt={Sizes.X1}>
-                        <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS} onClick={onClick} />
-                    </Spacer>
-                </FormColumn>
+                <Content>
+                    <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS} onClick={onClick} />
+                </Content>
             </Form>
         </>
     );
