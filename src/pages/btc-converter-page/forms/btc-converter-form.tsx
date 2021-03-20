@@ -33,7 +33,6 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
 
     const onClick = () => onChangeVisibility(formValues.CRYPTOS, true);
 
-    
     return (
         <>
             <Form>
