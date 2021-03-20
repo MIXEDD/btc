@@ -1,5 +1,6 @@
 import React from 'react';
-import {Field, InjectedFormProps, reduxForm } from 'redux-form';
+import {Field, InjectedFormProps, reduxForm, submit} from 'redux-form';
+import {useDispatch} from "react-redux";
 
 import { Form, FormColumn } from './../../../components/form-layout';
 import { PAGE_NAME } from '../constants';
@@ -29,13 +30,16 @@ type Props = InjectedFormProps<Partial<BtcConverterFormModel>, OwnProps> & OwnPr
 const BtcConverterForm: React.FC<Props> = React.memo((props) => {
     const { data, onChangeVisibility, formValues, visibility } = props;
 
+    const dispatch = useDispatch();
     const isDisabled = visibility[formValues?.CRYPTOS];
 
-    const onClick = () => onChangeVisibility(formValues.CRYPTOS, true);
+    const onSubmit = () => onChangeVisibility(formValues.CRYPTOS, true);
+
+    const submitForm = () => dispatch(submit(FORM_NAME));
 
     return (
         <>
-            <Form>
+            <Form onSubmit={onSubmit}>
                 <FormColumn>
                     <Field
                         name={FIELD_NAMES.BTC_AMOUNT}
@@ -53,7 +57,7 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
                     />
                 </FormColumn>
                 <Content>
-                    <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS || isDisabled} onClick={onClick} />
+                    <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS || isDisabled} onClick={submitForm}/>
                 </Content>
             </Form>
         </>
