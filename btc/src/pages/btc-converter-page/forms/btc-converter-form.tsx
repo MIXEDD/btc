@@ -10,6 +10,10 @@ export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
 type Props = InjectedFormProps<Partial<any>>;
 
+const FIELD_NAMES = {
+    BTC_AMOUNT: 'BTC_AMOUNT',
+}
+
 const BtcConverterForm: React.FC = React.memo((props) => {
     
     const onChange = (value: any) => {
@@ -20,7 +24,7 @@ const BtcConverterForm: React.FC = React.memo((props) => {
         <Form>
             <FormColumn>
                 <Field 
-                    name="BTC_AMOUNT"
+                    name={FIELD_NAMES.BTC_AMOUNT}
                     label={Translations["labels.enterBtcAmount"]}
                     type={FieldTypes.NUMBER}
                     component={TextInput}
