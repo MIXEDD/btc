@@ -40,7 +40,7 @@ const SelectInput: React.FC<Props> = React.memo((props) => {
             <Typography>{label}</Typography>
             <select onChange={handleChange} className={styles.selectField}>
                 {selectOptions.map((option) => (
-                    <option value={option[valueKey]}>{option[labelKey]}</option>
+                    <option key={option[valueKey]} value={option[valueKey]}>{option[labelKey]}</option>
                 ))}
             </select>
         </>
