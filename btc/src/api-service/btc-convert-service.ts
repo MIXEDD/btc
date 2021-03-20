@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios';
 
-import { API_PACKAGES } from './const';
+import { API_PACKAGES } from './constants';
 
 export const btcConvertService = {
     fetchBtcValues: (): AxiosPromise<any> =>
