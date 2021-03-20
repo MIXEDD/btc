@@ -20,12 +20,15 @@ export const FIELD_NAMES = {
 interface OwnProps {
     data: CoindeskBtcModel[];
     onChangeVisibility: (code: string, flag: boolean) => void;
+    formValues: BtcConverterFormModel;
 }
 
 type Props = InjectedFormProps<Partial<BtcConverterFormModel>, OwnProps> & OwnProps;
 
 const BtcConverterForm: React.FC<Props> = React.memo((props) => {
-    const { data, onChangeVisibility } = props;
+    const { data, onChangeVisibility, formValues } = props;
+    
+    const onClick = () => onChangeVisibility(formValues.CRYPTOS, true);
     
     return (
         <>
@@ -48,7 +51,7 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
                 </FormColumn>
                 <FormColumn>
                     <Spacer mt={Sizes.X1}>
-                        <Button text={Translations["labels.addCurrency"]} />
+                        <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS} onClick={onClick} />
                     </Spacer>
                 </FormColumn>
             </Form>
