@@ -17,12 +17,17 @@ const FIELD_NAMES = {
 
 interface OwnProps {
     data: CoindeskBtcModel[];
+    onChangeVisibility: (code: string, flag: boolean) => void;
 }
 
 type Props = InjectedFormProps<Partial<BtcConverterFormModel>, OwnProps> & OwnProps;
 
 const BtcConverterForm: React.FC<Props> = React.memo((props) => {
-    const { data } = props;
+    const { data, onChangeVisibility } = props;
+    
+    const onSelectChange = (value: any) => {
+        onChangeVisibility(value, true);
+    };
     
     return (
         <Form>
@@ -40,6 +45,7 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
                     options={data}
                     labelKey="description"
                     valueKey="code"
+                    onChange={onSelectChange}
                 />
             </FormColumn>
         </Form>
