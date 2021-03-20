@@ -7,6 +7,8 @@ import TextInput, { FieldTypes } from '../../../atoms/text-field/text-input';
 import Translations from '../../../translations/en.json';
 import SelectInput from '../../../atoms/select-field/select-field';
 import { BtcConverterFormModel, CoindeskBtcModel } from '../../../types/BtcConverter';
+import Spacer, { Sizes } from '../../../components/spacer';
+import Button from '../../../atoms/button/button';
 
 export const FORM_NAME = `${PAGE_NAME}_FORM`;
 
@@ -25,30 +27,32 @@ type Props = InjectedFormProps<Partial<BtcConverterFormModel>, OwnProps> & OwnPr
 const BtcConverterForm: React.FC<Props> = React.memo((props) => {
     const { data, onChangeVisibility } = props;
     
-    const onSelectChange = (value: any) => {
-        onChangeVisibility(value, true);
-    };
-    
     return (
-        <Form>
-            <FormColumn>
-                <Field 
-                    name={FIELD_NAMES.BTC_AMOUNT}
-                    label={Translations["labels.enterBtcAmount"]}
-                    type={FieldTypes.NUMBER}
-                    component={TextInput}
-                />
-                <Field
-                    name={FIELD_NAMES.CRYPTOS}
-                    label={Translations["labels.selectCurrencies"]}
-                    component={SelectInput}
-                    options={data}
-                    labelKey="description"
-                    valueKey="code"
-                    onChange={onSelectChange}
-                />
-            </FormColumn>
-        </Form>
+        <>
+            <Form>
+                <FormColumn>
+                    <Field
+                        name={FIELD_NAMES.BTC_AMOUNT}
+                        label={Translations["labels.enterBtcAmount"]}
+                        type={FieldTypes.NUMBER}
+                        component={TextInput}
+                    />
+                    <Field
+                        name={FIELD_NAMES.CRYPTOS}
+                        label={Translations["labels.selectCurrencies"]}
+                        component={SelectInput}
+                        options={data}
+                        labelKey="description"
+                        valueKey="code"
+                    />
+                </FormColumn>
+                <FormColumn>
+                    <Spacer mt={Sizes.X1}>
+                        <Button text={Translations["labels.addCurrency"]} />
+                    </Spacer>
+                </FormColumn>
+            </Form>
+        </>
     );
 });
 

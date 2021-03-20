@@ -11,9 +11,6 @@ export enum ElementType {
 
 export enum Sizes {
     X1 = '1',
-    X2 = '2',
-    X3 = '3',
-    X4 = '4',
 }
 
 interface Props {
@@ -50,22 +47,23 @@ const Spacer: React.FC<Props> = (props) => {
 
     const computedClassName = classnames(
         styles.spacer,
-        m && styles[`m-${m}`],
-        mt && styles[`mt-${mt}`],
-        mb && styles[`mb-${mb}`],
-        ml && styles[`ml-${ml}`],
-        mr && styles[`mr-${mr}`],
-        p && styles[`p-${p}`],
-        pt && styles[`pt-${pt}`],
-        pb && styles[`pb-${pb}`],
-        pl && styles[`pl-${pl}`],
-        pr && styles[`pr-${pr}`],
+        m && styles[`m${m}`],
+        mt && styles[`mt${mt}`],
+        mb && styles[`mb${mb}`],
+        ml && styles[`ml${ml}`],
+        mr && styles[`mr${mr}`],
+        p && styles[`p${p}`],
+        pt && styles[`pt${pt}`],
+        pb && styles[`pb${pb}`],
+        pl && styles[`pl${pl}`],
+        pr && styles[`pr${pr}`],
     );
 
     return React.createElement(
         elementType,
         {
             onClick,
+            className: computedClassName,
         },
         children,
     );

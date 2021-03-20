@@ -1,3 +1,14 @@
 $gutter: 7px;
+
 $base-fontsize: 13px;
+
+$opacity: 0.8;
+
+$blue: #005ddc;
+$white: #fff;
+
+$primary: (
+  'main': $blue,
+  'disabled': rgba($blue, 0.9),
+);
 

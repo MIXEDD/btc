@@ -1,4 +1,5 @@
 {
   "labels.enterBtcAmount": "Enter BTC Amount",
-  "labels.selectCurrencies": "Select currencies"
+  "labels.selectCurrencies": "Select currencies",
+  "labels.addCurrency": "Add currency"
 }
