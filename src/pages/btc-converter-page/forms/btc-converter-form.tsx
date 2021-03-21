@@ -31,7 +31,6 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
     const { data, onChangeVisibility, formValues, visibility } = props;
 
     const dispatch = useDispatch();
-    const isDisabled = visibility[formValues?.CRYPTOS];
 
     const onSubmit = () => onChangeVisibility(formValues.CRYPTOS, true);
 
@@ -56,7 +55,7 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
                 />
             </FormColumn>
             <Content>
-                <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS || isDisabled} onClick={submitForm}/>
+                <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS || visibility[formValues?.CRYPTOS]} onClick={submitForm}/>
             </Content>
         </Form>
     );
