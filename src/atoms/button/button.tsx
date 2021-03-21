@@ -16,10 +16,12 @@ interface Props {
 
 const Button: React.FC<Props> = (props) => {
     const { disabled, type = Type.BUTTON, text, onClick, children } = props;
+
     const className = classnames(
         styles.button,
         disabled && styles.disabled,
     );
+
     return (
         <button
             disabled={disabled}

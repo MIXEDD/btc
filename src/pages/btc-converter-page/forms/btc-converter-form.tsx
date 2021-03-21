@@ -38,29 +38,27 @@ const BtcConverterForm: React.FC<Props> = React.memo((props) => {
     const submitForm = () => dispatch(submit(FORM_NAME));
 
     return (
-        <>
-            <Form onSubmit={onSubmit}>
-                <FormColumn>
-                    <Field
-                        name={FIELD_NAMES.BTC_AMOUNT}
-                        label={Translations["labels.enterBtcAmount"]}
-                        type={FieldTypes.NUMBER}
-                        component={TextInput}
-                    />
-                    <Field
-                        name={FIELD_NAMES.CRYPTOS}
-                        label={Translations["labels.selectCurrencies"]}
-                        component={SelectInput}
-                        options={data}
-                        labelKey="description"
-                        valueKey="code"
-                    />
-                </FormColumn>
-                <Content>
-                    <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS || isDisabled} onClick={submitForm}/>
-                </Content>
-            </Form>
-        </>
+        <Form onSubmit={onSubmit}>
+            <FormColumn>
+                <Field
+                    name={FIELD_NAMES.BTC_AMOUNT}
+                    label={Translations["labels.enterBtcAmount"]}
+                    type={FieldTypes.NUMBER}
+                    component={TextInput}
+                />
+                <Field
+                    name={FIELD_NAMES.CRYPTOS}
+                    label={Translations["labels.selectCurrencies"]}
+                    component={SelectInput}
+                    options={data}
+                    labelKey="description"
+                    valueKey="code"
+                />
+            </FormColumn>
+            <Content>
+                <Button text={Translations["labels.addCurrency"]} disabled={!formValues?.CRYPTOS || isDisabled} onClick={submitForm}/>
+            </Content>
+        </Form>
     );
 });
 
